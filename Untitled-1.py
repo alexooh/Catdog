@@ -25,9 +25,10 @@ class DogsVSCats():
                 if "jpg" in f:
                     try:
                         path = os.path.join(label, f)
-                        img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
-                        img = cv2.resize(img, (self.IMG_SIZE, self.IMG_SIZE))
-                        self.training_data.append([np.array(img), np.eye(2)[self.LABELS[label]]])  # do something like print(np.eye(2)[1]), just makes one_hot 
+                        img = cv2.imread(path, cv2.IMREAD_GRAYSCALE)#reads image and converts to grayscale
+                        img = cv2.resize(img, (self.IMG_SIZE, self.IMG_SIZE))# resize to 50x50
+                        self.training_data.append([np.array(img), np.eye(2)[self.LABELS[label]]])  
+                        # do something like print(np.eye(2)[1]), just makes one_hot 
                         #print(np.eye(2)[self.LABELS[label]])
 
                         if label == self.CATS:
